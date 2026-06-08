@@ -117,6 +117,7 @@ export class MultiplayerManager {
 
   public submitAction(action: any) {
     if (this.isOfflineMock) {
+      if (this.side === 'observer') return
       this.onEventCallback({ type: 'ACTION_SUBMITTED', side: this.side, action })
 
       // Auto-simulate opponent submit in mock mode after 3 seconds

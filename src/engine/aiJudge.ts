@@ -273,12 +273,12 @@ export function applyActionResult(state: GameStore, side: Side, result: ActionRe
     state.createAISituation(
       newSit.name,
       newSit.description,
-      'REGIONAL_CRISIS',
+      'CRISIS',
       newSit.affectedCountries,
       newSit.affectedRegion,
       [
-        { name: '危机爆发', durationTurns: 2, cwsModifier: newSit.cwsImpact, effects: [] },
-        { name: '紧张僵持', durationTurns: 2, cwsModifier: newSit.cwsImpact + 4, effects: [] }
+        { name: '危机爆发', description: newSit.description, durationTurns: 2, cwsModifier: newSit.cwsImpact, effects: [] },
+        { name: '紧张僵持', description: '局势持续紧张', durationTurns: 2, cwsModifier: newSit.cwsImpact + 4, effects: [] }
       ],
       state.turn,
       state.year
